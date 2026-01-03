@@ -4,13 +4,7 @@ import bcrypt
 import argon2
 import os
 
-class HashMode(str, Enum):
-    SHA256 = 'SHA256'
-    BCRYPT = 'BCRYPT'
-    ARGON2 = 'ARGON2'
-
-# choose your mode here
-ACTIVE_HASH_MODE = HashMode.SHA256  
+from config import HashMode, ACTIVE_HASH_MODE, PEPPER_VALUE, PROTECTION_FLAGS
 
 ph = argon2.PasswordHasher(
     time_cost=1,
@@ -20,6 +14,9 @@ ph = argon2.PasswordHasher(
 )
 
 def hash_password(password: str):
+    if PROTECTION_FLAGS["pepper"]:
+        password = PEPPER_VALUE + password
+
     if ACTIVE_HASH_MODE == HashMode.SHA256:
         # sha256 with salt
         salt = os.urandom(16).hex()
@@ -42,6 +39,8 @@ def hash_password(password: str):
         raise ValueError("bad mode")
 
 def verify_password(stored_password, provided_password, salt, mode):
+    if PROTECTION_FLAGS["pepper"]:
+        provided_password = PEPPER_VALUE + provided_password
     
     if mode == HashMode.SHA256:
         combined = provided_password + salt

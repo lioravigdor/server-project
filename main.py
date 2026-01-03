@@ -2,7 +2,8 @@ import json
 import time
 import sqlite3
 from fastapi import FastAPI, Body, HTTPException
-from group_seed import GROUP_SEED
+from config import GROUP_SEED, PROTECTION_FLAGS
+
 from models import UserRegister, UserLogin, AuthResult
 from crypto_utils import hash_password, verify_password
 
@@ -70,9 +71,8 @@ def login(user_data: UserLogin):
     conn.close()
     
     result = AuthResult.FAILURE
-    mode = "unknown"
-    flags = "none"
-    
+    mode = None
+
     if user:
          stored_password = user[0]
          salt = user[1]
@@ -82,7 +82,7 @@ def login(user_data: UserLogin):
              result = AuthResult.SUCCESS
     
     latency = get_latency(start_time)
-    log_attempt(username, mode, flags, result, latency)
+    log_attempt(username, mode, PROTECTION_FLAGS, result, latency)
     
     if result == AuthResult.SUCCESS:
         return {"message": "Login successful"}
