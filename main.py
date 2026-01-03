@@ -2,12 +2,13 @@ import json
 import time
 import sqlite3
 from fastapi import FastAPI, Body, HTTPException, status
-from config import GROUP_SEED, PROTECTION_FLAGS
+from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN
 
 from models import UserRegister, UserLogin, AuthResult
 from crypto_utils import hash_password, verify_password
 from rate_limit import check_rate_limit
 from lockout import check_lockout, handle_failed_attempt, reset_failed_attempts
+from captcha import check_captcha_required, increment_captcha_failures, reset_captcha_failures, verify_captcha_token
 
 app = FastAPI()
 
@@ -71,11 +72,20 @@ def login(user_data: UserLogin):
     is_locked, remaining_time = check_lockout(username)
     if is_locked:
         latency = get_latency(start_time)
-        log_attempt(username, None, PROTECTION_FLAGS, AuthResult.LOCKED, latency)
+        log_attempt(username, None, PROTECTION_FLAGS, AuthResult.FAILURE, latency)
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN, 
             detail=f"Account locked. Try again in {int(remaining_time)} seconds."
         )
+
+    if check_captcha_required(username):
+        if not user_data.captcha_token:
+            latency = get_latency(start_time)
+            log_attempt(username, None, PROTECTION_FLAGS, AuthResult.FAILURE, latency)
+            raise HTTPException(status_code=400, detail="Captcha required")
+        
+        if not verify_captcha_token(user_data.captcha_token):
+            raise HTTPException(status_code=400, detail="Invalid CAPTCHA token")
 
     password = user_data.password
     
@@ -96,10 +106,13 @@ def login(user_data: UserLogin):
          if verify_password(stored_password, password, salt, mode):
              result = AuthResult.SUCCESS
              reset_failed_attempts(username)
+             reset_captcha_failures(username)
          else:
              handle_failed_attempt(username)
+             increment_captcha_failures(username)
     else:
         handle_failed_attempt(username)
+        increment_captcha_failures(username)
     
     latency = get_latency(start_time)
     log_attempt(username, mode, PROTECTION_FLAGS, result, latency)
@@ -108,3 +121,10 @@ def login(user_data: UserLogin):
         return {"message": "Login successful"}
     
     return {"message": "Login failed"}
+
+@app.get("/admin/get_captcha_token")
+def get_captcha_token(group_seed: int):
+    if group_seed == GROUP_SEED:
+        return {"captcha_token": CAPTCHA_TOKEN}
+    
+    raise HTTPException(status_code=403, detail="Invalid group seed")

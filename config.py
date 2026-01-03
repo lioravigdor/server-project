@@ -12,7 +12,8 @@ ACTIVE_HASH_MODE = HashMode.SHA256
 PROTECTION_FLAGS = {
     "pepper": True,
     "rate_limiting": True,
-    "account_lockout": True
+    "account_lockout": True,
+    "captcha": True
 }
 
 # pepper configuration
@@ -23,5 +24,9 @@ RATE_LIMIT_MAX_REQUESTS = 20
 RATE_LIMIT_WINDOW_SECONDS = 60
 
 # account lockout configuration
-LOCKOUT_THRESHOLD = 3
+LOCKOUT_THRESHOLD = 10
 LOCKOUT_DURATION_SECONDS = 20
+
+# captcha configuration
+CAPTCHA_THRESHOLD = 3
+CAPTCHA_TOKEN = "captcha_token"

@@ -8,12 +8,11 @@ class UserRegister(BaseModel):
 class UserLogin(BaseModel):
     username: str
     password: str
+    captcha_token: str | None = None
 
 class AuthResult(str, Enum):
     SUCCESS = "Success"
     FAILURE = "Failure"
-    LOCKED = "Locked"
-
 class HashMode(str, Enum):
     SHA256 = 'SHA256'
     BCRYPT = 'BCRYPT'
