@@ -2,7 +2,7 @@ from models import HashMode
 
 # group seed configuration
 ID1 = 207031337
-ID2 = 20723855
+ID2 = 207273855
 GROUP_SEED = ID1 ^ ID2
 
 # hashing configuration
