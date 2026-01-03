@@ -13,7 +13,8 @@ PROTECTION_FLAGS = {
     "pepper": True,
     "rate_limiting": True,
     "account_lockout": True,
-    "captcha": True
+    "captcha": True,
+    "totp": True
 }
 
 # pepper configuration

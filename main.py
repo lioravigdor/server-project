@@ -1,10 +1,11 @@
 import json
 import time
 import sqlite3
+import pyotp
 from fastapi import FastAPI, Body, HTTPException, status
-from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN
+from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, ACTIVE_HASH_MODE
 
-from models import UserRegister, UserLogin, AuthResult
+from models import UserRegister, UserLogin, AuthResult, UserLoginTotp
 from crypto_utils import hash_password, verify_password
 from rate_limit import check_rate_limit
 from lockout import check_lockout, handle_failed_attempt, reset_failed_attempts
@@ -19,7 +20,7 @@ def init_db():
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS users
-                 (username TEXT PRIMARY KEY, hashed_password TEXT, salt TEXT, hash_mode TEXT)''')
+                 (username TEXT PRIMARY KEY, hashed_password TEXT, salt TEXT, hash_mode TEXT, totp_secret TEXT)''')
     conn.commit()
     conn.close()
 
@@ -47,19 +48,28 @@ def register(user_data: UserRegister):
          raise HTTPException(status_code=400, detail="Missing username or password")
 
     hashed, salt, mode = hash_password(password)
+    
+    totp_secret = None
+    if PROTECTION_FLAGS.get("totp"):
+        totp_secret = pyotp.random_base32()
 
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     try:
-        c.execute("INSERT INTO users (username, hashed_password, salt, hash_mode) VALUES (?, ?, ?, ?)",
-                  (username, hashed, salt, mode)) 
+        c.execute("INSERT INTO users (username, hashed_password, salt, hash_mode, totp_secret) VALUES (?, ?, ?, ?, ?)",
+                  (username, hashed, salt, mode, totp_secret)) 
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
         raise HTTPException(status_code=400, detail="User already exists")
     
     conn.close()
-    return {"message": "User registered"}
+    
+    response = {"message": "User registered"}
+    if totp_secret:
+        response["totp_secret"] = totp_secret
+        
+    return response
 
 @app.post("/login")
 def login(user_data: UserLogin):
@@ -91,22 +101,27 @@ def login(user_data: UserLogin):
     
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
-    c.execute("SELECT hashed_password, salt, hash_mode FROM users WHERE username=?", (username,))
+    c.execute("SELECT hashed_password, salt, hash_mode, totp_secret FROM users WHERE username=?", (username,))
     user = c.fetchone()
     conn.close()
     
     result = AuthResult.FAILURE
-    mode = None
 
     if user:
          stored_password = user[0]
          salt = user[1]
          mode = user[2]
+         totp_secret = user[3]
          
          if verify_password(stored_password, password, salt, mode):
              result = AuthResult.SUCCESS
              reset_failed_attempts(username)
              reset_captcha_failures(username)
+             
+             if totp_secret and PROTECTION_FLAGS.get("totp"):
+                 latency = get_latency(start_time)
+                 log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, AuthResult.FAILURE, latency)
+                 return {"message": "2FA Required"}
          else:
              handle_failed_attempt(username)
              increment_captcha_failures(username)
@@ -115,12 +130,42 @@ def login(user_data: UserLogin):
         increment_captcha_failures(username)
     
     latency = get_latency(start_time)
-    log_attempt(username, mode, PROTECTION_FLAGS, result, latency)
+    log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, result, latency)
     
     if result == AuthResult.SUCCESS:
         return {"message": "Login successful"}
     
     return {"message": "Login failed"}
+
+@app.post("/login_totp")
+def login_totp(user_data: UserLoginTotp):
+    if not PROTECTION_FLAGS.get("totp"):
+        raise HTTPException(status_code=404, detail="TOTP feature disabled")
+
+    start_time = time.time()
+    username = user_data.username
+    totp_code = user_data.totp_code
+
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    c.execute("SELECT totp_secret, hash_mode FROM users WHERE username=?", (username,))
+    user = c.fetchone()
+    conn.close()
+
+    result = AuthResult.FAILURE
+    if user:
+        totp_secret = user[0]        
+        totp = pyotp.TOTP(totp_secret)
+        if totp.verify(totp_code):
+             result = AuthResult.SUCCESS
+    
+    latency = get_latency(start_time)
+    log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, result, latency)
+
+    if result == AuthResult.SUCCESS:
+        return {"message": "Login successful"}
+    
+    raise HTTPException(status_code=401, detail="Invalid TOTP code")
 
 @app.get("/admin/get_captcha_token")
 def get_captcha_token(group_seed: int):

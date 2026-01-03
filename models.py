@@ -10,6 +10,10 @@ class UserLogin(BaseModel):
     password: str
     captcha_token: str | None = None
 
+class UserLoginTotp(BaseModel):
+    username: str
+    totp_code: str
+
 class AuthResult(str, Enum):
     SUCCESS = "Success"
     FAILURE = "Failure"
