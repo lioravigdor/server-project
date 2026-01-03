@@ -1,0 +1,3 @@
+ID1 = 207031337
+ID2 = 987654321 # TODO - change to roei id
+GROUP_SEED = ID1 ^ ID2
