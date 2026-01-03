@@ -1,20 +1,27 @@
-from enum import Enum
-
-class HashMode(str, Enum):
-    SHA256 = 'SHA256'
-    BCRYPT = 'BCRYPT'
-    ARGON2 = 'ARGON2'
+from models import HashMode
 
 # group seed configuration
 ID1 = 207031337
-ID2 = 987654321 # TODO - change to roei id
+ID2 = 20723855
 GROUP_SEED = ID1 ^ ID2
 
 # hashing configuration
 ACTIVE_HASH_MODE = HashMode.SHA256
 
 # protection flags configuration
-PEPPER_VALUE = "SecretPepper"
 PROTECTION_FLAGS = {
-    "pepper": True
+    "pepper": True,
+    "rate_limiting": True,
+    "account_lockout": True
 }
+
+# pepper configuration
+PEPPER_VALUE = "SecretPepper"
+
+# rate limiting configuration
+RATE_LIMIT_MAX_REQUESTS = 20
+RATE_LIMIT_WINDOW_SECONDS = 60
+
+# account lockout configuration
+LOCKOUT_THRESHOLD = 3
+LOCKOUT_DURATION_SECONDS = 20

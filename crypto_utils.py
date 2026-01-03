@@ -1,10 +1,10 @@
-from enum import Enum
 import hashlib
 import bcrypt
 import argon2
 import os
 
-from config import HashMode, ACTIVE_HASH_MODE, PEPPER_VALUE, PROTECTION_FLAGS
+from models import HashMode
+from config import ACTIVE_HASH_MODE, PEPPER_VALUE, PROTECTION_FLAGS
 
 ph = argon2.PasswordHasher(
     time_cost=1,

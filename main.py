@@ -1,11 +1,13 @@
 import json
 import time
 import sqlite3
-from fastapi import FastAPI, Body, HTTPException
+from fastapi import FastAPI, Body, HTTPException, status
 from config import GROUP_SEED, PROTECTION_FLAGS
 
 from models import UserRegister, UserLogin, AuthResult
 from crypto_utils import hash_password, verify_password
+from rate_limit import check_rate_limit
+from lockout import check_lockout, handle_failed_attempt, reset_failed_attempts
 
 app = FastAPI()
 
@@ -60,8 +62,21 @@ def register(user_data: UserRegister):
 
 @app.post("/login")
 def login(user_data: UserLogin):
+    if not check_rate_limit(user_data.username):
+        raise HTTPException(status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="Too many login attempts")
+
     start_time = time.time()
     username = user_data.username
+    
+    is_locked, remaining_time = check_lockout(username)
+    if is_locked:
+        latency = get_latency(start_time)
+        log_attempt(username, None, PROTECTION_FLAGS, AuthResult.LOCKED, latency)
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN, 
+            detail=f"Account locked. Try again in {int(remaining_time)} seconds."
+        )
+
     password = user_data.password
     
     conn = sqlite3.connect('users.db')
@@ -80,6 +95,11 @@ def login(user_data: UserLogin):
          
          if verify_password(stored_password, password, salt, mode):
              result = AuthResult.SUCCESS
+             reset_failed_attempts(username)
+         else:
+             handle_failed_attempt(username)
+    else:
+        handle_failed_attempt(username)
     
     latency = get_latency(start_time)
     log_attempt(username, mode, PROTECTION_FLAGS, result, latency)

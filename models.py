@@ -12,3 +12,9 @@ class UserLogin(BaseModel):
 class AuthResult(str, Enum):
     SUCCESS = "Success"
     FAILURE = "Failure"
+    LOCKED = "Locked"
+
+class HashMode(str, Enum):
+    SHA256 = 'SHA256'
+    BCRYPT = 'BCRYPT'
+    ARGON2 = 'ARGON2'
