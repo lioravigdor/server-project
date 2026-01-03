@@ -4,6 +4,7 @@ import sqlite3
 from fastapi import FastAPI, Body, HTTPException
 from group_seed import GROUP_SEED
 from models import UserRegister, UserLogin, AuthResult
+from crypto_utils import hash_password, verify_password
 
 app = FastAPI()
 
@@ -30,7 +31,7 @@ def log_attempt(username, mode, flags, result, latency):
         "latency_ms": latency,
         "group_seed": GROUP_SEED
     }
-    with open("attempts.json", "a") as f:
+    with open("attempts.log", "a") as f:
         f.write(json.dumps(entry) + "\n")
 
 @app.post("/register")
@@ -41,12 +42,13 @@ def register(user_data: UserRegister):
     if not username or not password:
          raise HTTPException(status_code=400, detail="Missing username or password")
 
+    hashed, salt, mode = hash_password(password)
+
     conn = sqlite3.connect('users.db')
     c = conn.cursor()
     try:
-        # TODO - hash password
         c.execute("INSERT INTO users (username, hashed_password, salt, hash_mode) VALUES (?, ?, ?, ?)",
-                  (username, password, "somesalt", "1")) 
+                  (username, hashed, salt, mode)) 
         conn.commit()
     except sqlite3.IntegrityError:
         conn.close()
@@ -68,13 +70,15 @@ def login(user_data: UserLogin):
     conn.close()
     
     result = AuthResult.FAILURE
-    mode = "unknown" # todo - change mode and flags
-    flags = "flags"
+    mode = "unknown"
+    flags = "none"
     
     if user:
          stored_password = user[0]
+         salt = user[1]
          mode = user[2]
-         if stored_password == password:
+         
+         if verify_password(stored_password, password, salt, mode):
              result = AuthResult.SUCCESS
     
     latency = get_latency(start_time)

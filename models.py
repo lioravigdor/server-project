@@ -9,6 +9,6 @@ class UserLogin(BaseModel):
     username: str
     password: str
 
-class AuthResult(Enum):
+class AuthResult(str, Enum):
     SUCCESS = "Success"
     FAILURE = "Failure"
