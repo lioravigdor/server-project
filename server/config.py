@@ -10,11 +10,11 @@ ACTIVE_HASH_MODE = HashMode.SHA256
 
 # protection flags configuration
 PROTECTION_FLAGS = {
-    "pepper": True,
-    "rate_limiting": True,
-    "account_lockout": True,
-    "captcha": True,
-    "totp": True
+    "pepper": False,
+    "rate_limiting": False,
+    "account_lockout": False,
+    "captcha": False,
+    "totp": False
 }
 
 # pepper configuration
