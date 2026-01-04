@@ -3,3 +3,4 @@ uvicorn
 bcrypt
 argon2-cffi
 pyotp
+requests

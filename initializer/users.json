@@ -1,0 +1,186 @@
+{
+  "group_seed": 897878,
+  "users": [
+    {
+      "username": "weak_user_01",
+      "password": "123456",
+      "category": "weak",
+      "reasoning": "Most common password worldwide"
+    },
+    {
+      "username": "weak_user_02",
+      "password": "password",
+      "category": "weak",
+      "reasoning": "Classic weak password, dictionary word"
+    },
+    {
+      "username": "weak_user_03",
+      "password": "qwerty",
+      "category": "weak",
+      "reasoning": "Keyboard pattern, very common"
+    },
+    {
+      "username": "weak_user_04",
+      "password": "897878",
+      "category": "weak",
+      "reasoning": "GROUP_SEED as password (per plan requirement)"
+    },
+    {
+      "username": "weak_user_05",
+      "password": "111111",
+      "category": "weak",
+      "reasoning": "Repeated single digit"
+    },
+    {
+      "username": "weak_user_06",
+      "password": "abc123",
+      "category": "weak",
+      "reasoning": "Simple alphanumeric sequence"
+    },
+    {
+      "username": "weak_user_07",
+      "password": "letmein",
+      "category": "weak",
+      "reasoning": "Common phrase password"
+    },
+    {
+      "username": "weak_user_08",
+      "password": "admin",
+      "category": "weak",
+      "reasoning": "Default/common system password"
+    },
+    {
+      "username": "weak_user_09",
+      "password": "welcome",
+      "category": "weak",
+      "reasoning": "Common default password"
+    },
+    {
+      "username": "weak_user_10",
+      "password": "monkey",
+      "category": "weak",
+      "reasoning": "Top 25 most common passwords"
+    },
+    {
+      "username": "medium_user_01",
+      "password": "Summer2024!",
+      "category": "medium",
+      "reasoning": "Season + year + symbol, predictable pattern"
+    },
+    {
+      "username": "medium_user_02",
+      "password": "Password123",
+      "category": "medium",
+      "reasoning": "Dictionary word with numbers, common pattern"
+    },
+    {
+      "username": "medium_user_03",
+      "password": "Football99",
+      "category": "medium",
+      "reasoning": "Common word with numbers"
+    },
+    {
+      "username": "medium_user_04",
+      "password": "Sunshine#1",
+      "category": "medium",
+      "reasoning": "Dictionary word with symbol and number"
+    },
+    {
+      "username": "medium_user_05",
+      "password": "Dragon2023",
+      "category": "medium",
+      "reasoning": "Common word with recent year"
+    },
+    {
+      "username": "medium_user_06",
+      "password": "Michael01!",
+      "category": "medium",
+      "reasoning": "Common name with numbers and symbol"
+    },
+    {
+      "username": "medium_user_07",
+      "password": "Qwerty@123",
+      "category": "medium",
+      "reasoning": "Keyboard pattern with added complexity"
+    },
+    {
+      "username": "medium_user_08",
+      "password": "Iloveyou2",
+      "category": "medium",
+      "reasoning": "Common phrase with number"
+    },
+    {
+      "username": "medium_user_09",
+      "password": "Computer!1",
+      "category": "medium",
+      "reasoning": "Dictionary word with symbol and number"
+    },
+    {
+      "username": "medium_user_10",
+      "password": "January#25",
+      "category": "medium",
+      "reasoning": "Month with symbol and number"
+    },
+    {
+      "username": "strong_user_01",
+      "password": "kX9#mP2$vL7@nQ4",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_02",
+      "password": "7Fj!qR3&wZ8*pK5",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_03",
+      "password": "Bx4$nT9#hL2@yM6",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_04",
+      "password": "2Qw!eR5%tY8&uI0",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_05",
+      "password": "pL3@kJ7#mN1$bV4",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_06",
+      "password": "xC6*zA9!qW2#sD5",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_07",
+      "password": "fG8%hJ4&kL0*mN3",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_08",
+      "password": "rT1!yU7@iO4#pA9",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_09",
+      "password": "vB5$nM2%cX8&zL6",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    },
+    {
+      "username": "strong_user_10",
+      "password": "3Qs!wE7@rT0#yU4",
+      "category": "strong",
+      "reasoning": "Random mixed characters, 15 chars"
+    }
+  ]
+}
+
