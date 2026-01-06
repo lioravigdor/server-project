@@ -5,8 +5,9 @@ ID1 = 207031337
 ID2 = 207273855
 GROUP_SEED = ID1 ^ ID2 # 897878
 
-# hashing configuration
-ACTIVE_HASH_MODE = HashMode.SHA256
+# hashing configuration (set via CLI: python main.py --hash bcrypt)
+HASH_CONFIG = {"mode": HashMode.SHA256}
+VALID_HASH_MODES = [m.value.lower() for m in HashMode]
 
 # protection flags (set via CLI: python main.py --protect pepper rate_limiting)
 PROTECTION_FLAGS = {

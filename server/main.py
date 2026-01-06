@@ -5,9 +5,9 @@ import argparse
 import pyotp
 from pathlib import Path
 from fastapi import FastAPI, Body, HTTPException, status
-from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, ACTIVE_HASH_MODE, VALID_PROTECTIONS
+from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, HASH_CONFIG, VALID_PROTECTIONS, VALID_HASH_MODES
 
-from models import UserRegister, UserLogin, AuthResult, UserLoginTotp
+from models import UserRegister, UserLogin, AuthResult, UserLoginTotp, HashMode
 from crypto_utils import hash_password, verify_password
 from rate_limit import check_rate_limit
 from lockout import check_lockout, handle_failed_attempt, reset_failed_attempts
@@ -165,7 +165,7 @@ def login(user_data: UserLogin):
              
              if totp_secret and PROTECTION_FLAGS.get("totp"):
                  latency = get_latency(start_time)
-                 log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, AuthResult.FAILURE, latency)
+                 log_attempt(username, HASH_CONFIG["mode"], PROTECTION_FLAGS, AuthResult.FAILURE, latency)
                  return {"message": "2FA Required"}
          else:
              handle_failed_attempt(username)
@@ -175,7 +175,7 @@ def login(user_data: UserLogin):
         increment_captcha_failures(username)
     
     latency = get_latency(start_time)
-    log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, result, latency)
+    log_attempt(username, HASH_CONFIG["mode"], PROTECTION_FLAGS, result, latency)
     
     if result == AuthResult.SUCCESS:
         return {"message": "Login successful"}
@@ -205,7 +205,7 @@ def login_totp(user_data: UserLoginTotp):
              result = AuthResult.SUCCESS
     
     latency = get_latency(start_time)
-    log_attempt(username, ACTIVE_HASH_MODE, PROTECTION_FLAGS, result, latency)
+    log_attempt(username, HASH_CONFIG["mode"], PROTECTION_FLAGS, result, latency)
 
     if result == AuthResult.SUCCESS:
         return {"message": "Login successful"}
@@ -230,6 +230,12 @@ def parse_args():
         metavar="PROTECTION",
         help=f"Enable protections: {', '.join(VALID_PROTECTIONS)}, all, none"
     )
+    parser.add_argument(
+        "--hash",
+        choices=VALID_HASH_MODES,
+        default="sha256",
+        help=f"Hash algorithm: {', '.join(VALID_HASH_MODES)} (default: sha256)"
+    )
     parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default: 127.0.0.1)")
     parser.add_argument("--port", type=int, default=8000, help="Port to bind (default: 8000)")
     parser.add_argument("--reload", action="store_true", help="Enable auto-reload")
@@ -252,13 +258,20 @@ def enable_protections(protections: list[str]):
             PROTECTION_FLAGS[protection] = True
 
 
+def set_hash_mode(mode: str):
+    mode_map = {m.value.lower(): m for m in HashMode}
+    HASH_CONFIG["mode"] = mode_map[mode]
+
+
 if __name__ == "__main__":
     import uvicorn
     
     args = parse_args()
     enable_protections(args.protect)
+    set_hash_mode(args.hash)
     
     enabled = [k for k, v in PROTECTION_FLAGS.items() if v]
-    print(f"[*] Protections enabled: {enabled if enabled else 'none'}")
+    print(f"[*] Hash mode: {HASH_CONFIG['mode'].value}")
+    print(f"[*] Protections: {enabled if enabled else 'none'}")
     
     uvicorn.run("main:app", host=args.host, port=args.port, reload=args.reload)

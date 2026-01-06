@@ -11,13 +11,16 @@ pip3 install -r requirements.txt
 # Start server (from server directory)
 cd server
 
-# No protections (default)
+# Default (sha256, no protections)
 python main.py
 
-# With specific protections
-python main.py --protect pepper rate_limiting
+# With bcrypt hashing
+python main.py --hash bcrypt
 
-# With all protections
+# With argon2 and protections
+python main.py --hash argon2 --protect pepper rate_limiting
+
+# All protections enabled
 python main.py --protect all
 ```
 
@@ -31,6 +34,7 @@ python3 attacks/brute_forcer/brute_forcer.py -u weak_user_01
 python3 attacks/password_sprayer/password_sprayer.py
 ```
 
-## Available Protections
+## CLI Options
 
-`pepper`, `rate_limiting`, `account_lockout`, `captcha`, `totp`, `all`, `none`
+- `--hash` - sha256, bcrypt, argon2 (default: sha256)
+- `--protect` - pepper, rate_limiting, account_lockout, captcha, totp, all, none

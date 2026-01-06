@@ -4,7 +4,7 @@ import argon2
 import os
 
 from models import HashMode
-from config import ACTIVE_HASH_MODE, PEPPER_VALUE, PROTECTION_FLAGS
+from config import HASH_CONFIG, PEPPER_VALUE, PROTECTION_FLAGS
 
 ph = argon2.PasswordHasher(
     time_cost=1,
@@ -17,20 +17,20 @@ def hash_password(password: str):
     if PROTECTION_FLAGS["pepper"]:
         password = PEPPER_VALUE + password
 
-    if ACTIVE_HASH_MODE == HashMode.SHA256:
+    if HASH_CONFIG["mode"] == HashMode.SHA256:
         # sha256 with salt
         salt = os.urandom(16).hex()
         combined = password + salt
         hashed = hashlib.sha256(combined.encode()).hexdigest()
         return hashed, salt, HashMode.SHA256
     
-    elif ACTIVE_HASH_MODE == HashMode.BCRYPT:
+    elif HASH_CONFIG["mode"] == HashMode.BCRYPT:
         # bcrypt handles salt itself
         salt_bytes = bcrypt.gensalt(rounds=12)
         hashed_bytes = bcrypt.hashpw(password.encode(), salt_bytes)
         return hashed_bytes.decode(), None, HashMode.BCRYPT
     
-    elif ACTIVE_HASH_MODE == HashMode.ARGON2:
+    elif HASH_CONFIG["mode"] == HashMode.ARGON2:
         # argon2id
         hashed = ph.hash(password)
         return hashed, None, HashMode.ARGON2
