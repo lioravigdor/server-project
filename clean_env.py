@@ -8,7 +8,8 @@ ROOT = Path(__file__).parent
 
 FILES_TO_DELETE = [
     ROOT / "users.db",
-    ROOT / "initializer" / "totp_secrets.json",
+    ROOT / "server" / "users.db",
+    ROOT / "server" / "totp_secrets.json",
     ROOT / "server" / "attempts.log",
 ]
 

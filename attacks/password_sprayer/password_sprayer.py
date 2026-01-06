@@ -241,7 +241,7 @@ def main():
     )
     parser.add_argument(
         "--users-json",
-        default=str(Path(__file__).parent.parent.parent / "initializer" / "users.json"),
+        default=str(Path(__file__).parent.parent.parent / "server" / "users.json"),
         help="Path to users.json"
     )
     parser.add_argument(

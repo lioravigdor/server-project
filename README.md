@@ -8,11 +8,8 @@
 # Install dependencies
 pip3 install -r requirements.txt
 
-# Start server
+# Start server (users are auto-loaded from server/users.json)
 cd server && uvicorn main:app --reload
-
-# Create test users (new terminal)
-python3 initializer/init_users.py
 
 # Run brute force (new terminal)
 python3 attacks/brute_forcer/brute_forcer.py -u weak_user_01

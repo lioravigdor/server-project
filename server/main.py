@@ -2,6 +2,7 @@ import json
 import time
 import sqlite3
 import pyotp
+from pathlib import Path
 from fastapi import FastAPI, Body, HTTPException, status
 from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, ACTIVE_HASH_MODE
 
@@ -24,7 +25,50 @@ def init_db():
     conn.commit()
     conn.close()
 
+def load_default_users():
+    """Load users from users.json if it exists."""
+    users_json_path = Path(__file__).parent / "users.json"
+    if not users_json_path.exists():
+        return
+    
+    with open(users_json_path, 'r') as f:
+        data = json.load(f)
+    
+    users = data.get("users", [])
+    if not users:
+        return
+    
+    conn = sqlite3.connect('users.db')
+    c = conn.cursor()
+    
+    added = 0
+    for user in users:
+        username = user["username"]
+        password = user["password"]
+        
+        # Check if user already exists
+        c.execute("SELECT 1 FROM users WHERE username=?", (username,))
+        if c.fetchone():
+            continue
+        
+        # Hash password and create user
+        hashed, salt, mode = hash_password(password)
+        totp_secret = pyotp.random_base32() if PROTECTION_FLAGS.get("totp") else None
+        
+        c.execute(
+            "INSERT INTO users (username, hashed_password, salt, hash_mode, totp_secret) VALUES (?, ?, ?, ?, ?)",
+            (username, hashed, salt, mode, totp_secret)
+        )
+        added += 1
+    
+    conn.commit()
+    conn.close()
+    
+    if added > 0:
+        print(f"[*] Loaded {added} users from users.json")
+
 init_db()
+load_default_users()
 
 def log_attempt(username, mode, flags, result, latency):
     entry = {
