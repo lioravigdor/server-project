@@ -209,7 +209,12 @@ def run_brute_force(
                 if totp_result["success"]:
                     result["success"] = True
             else:
-                print(f"\n[!] TOTP required but no secret available for {username}")
+                # Password found but TOTP blocks access
+                elapsed = time.time() - start_time
+                print(f"\n[+] PASSWORD FOUND: '{password}' (but TOTP required - access blocked)")
+                print(f"[+] Attempts: {attempts}, Time: {elapsed:.2f}s")
+                successes += 1
+                break
         
         # Check success
         if result["success"]:

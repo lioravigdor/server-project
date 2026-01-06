@@ -191,11 +191,17 @@ def run_spray(
                     total_latency += totp_result["latency_ms"]
                     if totp_result["success"]:
                         result["success"] = True
+                else:
+                    # Password found but TOTP blocks access
+                    successes += 1
+                    cracked_users.append({"username": username, "password": password, "category": user.get("category", "unknown"), "totp_blocked": True})
+                    print(f"  [+] PASSWORD FOUND: {username} -> '{password}' (TOTP required - access blocked)")
+                    continue
             
             # Check success
             if result["success"]:
                 successes += 1
-                cracked_users.append({"username": username, "password": password, "category": user.get("category", "unknown")})
+                cracked_users.append({"username": username, "password": password, "category": user.get("category", "unknown"), "totp_blocked": False})
                 print(f"  [+] CRACKED: {username} -> '{password}'")
     
     # Summary
