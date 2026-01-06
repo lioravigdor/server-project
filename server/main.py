@@ -1,10 +1,11 @@
 import json
 import time
 import sqlite3
+import argparse
 import pyotp
 from pathlib import Path
 from fastapi import FastAPI, Body, HTTPException, status
-from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, ACTIVE_HASH_MODE
+from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, ACTIVE_HASH_MODE, VALID_PROTECTIONS
 
 from models import UserRegister, UserLogin, AuthResult, UserLoginTotp
 from crypto_utils import hash_password, verify_password
@@ -217,3 +218,47 @@ def get_captcha_token(group_seed: int):
         return {"captcha_token": CAPTCHA_TOKEN}
     
     raise HTTPException(status_code=403, detail="Invalid group seed")
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Authentication Server")
+    parser.add_argument(
+        "--protect",
+        nargs="*",
+        choices=VALID_PROTECTIONS + ["all", "none"],
+        default=[],
+        metavar="PROTECTION",
+        help=f"Enable protections: {', '.join(VALID_PROTECTIONS)}, all, none"
+    )
+    parser.add_argument("--host", default="127.0.0.1", help="Host to bind (default: 127.0.0.1)")
+    parser.add_argument("--port", type=int, default=8000, help="Port to bind (default: 8000)")
+    parser.add_argument("--reload", action="store_true", help="Enable auto-reload")
+    return parser.parse_args()
+
+
+def enable_protections(protections: list[str]):
+    if "none" in protections:
+        for key in PROTECTION_FLAGS:
+            PROTECTION_FLAGS[key] = False
+        return
+    
+    if "all" in protections:
+        for key in PROTECTION_FLAGS:
+            PROTECTION_FLAGS[key] = True
+        return
+    
+    for protection in protections:
+        if protection in PROTECTION_FLAGS:
+            PROTECTION_FLAGS[protection] = True
+
+
+if __name__ == "__main__":
+    import uvicorn
+    
+    args = parse_args()
+    enable_protections(args.protect)
+    
+    enabled = [k for k, v in PROTECTION_FLAGS.items() if v]
+    print(f"[*] Protections enabled: {enabled if enabled else 'none'}")
+    
+    uvicorn.run("main:app", host=args.host, port=args.port, reload=args.reload)

@@ -8,7 +8,7 @@ GROUP_SEED = ID1 ^ ID2
 # hashing configuration
 ACTIVE_HASH_MODE = HashMode.SHA256
 
-# protection flags configuration
+# protection flags (set via CLI: python main.py --protect pepper rate_limiting)
 PROTECTION_FLAGS = {
     "pepper": False,
     "rate_limiting": False,
@@ -16,6 +16,9 @@ PROTECTION_FLAGS = {
     "captcha": False,
     "totp": False
 }
+
+# valid protection names for CLI validation
+VALID_PROTECTIONS = list(PROTECTION_FLAGS.keys())
 
 # pepper configuration
 PEPPER_VALUE = "SecretPepper"
