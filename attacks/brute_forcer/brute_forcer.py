@@ -131,6 +131,21 @@ def attempt_totp(base_url: str, username: str, totp_secret: str) -> dict:
         return {"success": False, "message": str(e), "latency_ms": 0}
 
 
+def log_attempt(log_file, username: str, password: str, result: str, latency_ms: float):
+    """Log a single attempt to the log file."""
+    if log_file:
+        entry = {
+            "timestamp": time.time(),
+            "username": username,
+            "password_tried": password,
+            "result": result,
+            "latency_ms": latency_ms,
+            "attack_type": "brute_force"
+        }
+        log_file.write(json.dumps(entry) + "\n")
+        log_file.flush()
+
+
 def run_brute_force(
     base_url: str,
     username: str,
@@ -138,7 +153,8 @@ def run_brute_force(
     users_json_path: str,
     max_attempts: int,
     time_limit: int,
-    with_totp: bool = False
+    with_totp: bool = False,
+    log_path: str = None
 ):
     """Run brute force attack against a single user."""
     
@@ -148,11 +164,16 @@ def run_brute_force(
     print(f"[*] Max attempts: {max_attempts}")
     print(f"[*] Time limit: {time_limit}s")
     print(f"[*] TOTP automation: {'enabled' if with_totp else 'disabled'}")
+    if log_path:
+        print(f"[*] Logging to: {log_path}")
     print("-" * 50)
     
     # Load wordlist
     passwords = load_wordlist(wordlist_path)
     print(f"[*] Loaded {len(passwords)} passwords from wordlist")
+    
+    # Open log file if specified
+    log_file = open(log_path, 'a') if log_path else None
     
     # Load TOTP secrets only if enabled
     user_totp_secret = None
@@ -189,6 +210,12 @@ def run_brute_force(
         # Attempt login
         result = attempt_login(base_url, username, password, captcha_token)
         total_latency += result["latency_ms"]
+        
+        # Log the attempt
+        attempt_result = "Success" if result["success"] else "Failure"
+        if result["requires_totp"]:
+            attempt_result = "TOTP_Required"
+        log_attempt(log_file, username, password, attempt_result, result["latency_ms"])
         
         # Handle CAPTCHA requirement
         if result["requires_captcha"]:
@@ -227,6 +254,11 @@ def run_brute_force(
         # Progress indicator
         if attempts % 10 == 0:
             print(f"\r[*] Attempts: {attempts}, Elapsed: {elapsed:.1f}s", end="", flush=True)
+    
+    # Close log file
+    if log_file:
+        log_file.close()
+        print(f"\n[*] Log saved to: {log_path}")
     
     # Final statistics
     elapsed = time.time() - start_time
@@ -299,6 +331,10 @@ def main():
         help="Output file for results (JSON)"
     )
     parser.add_argument(
+        "--log", "-l",
+        help="Log file for individual attempts (JSON-lines format for analyzer)"
+    )
+    parser.add_argument(
         "--with-totp",
         action="store_true",
         help="Enable TOTP automation (load secrets from totp_secrets.json)"
@@ -313,7 +349,8 @@ def main():
         users_json_path=args.users_json,
         max_attempts=args.max_attempts,
         time_limit=args.time_limit,
-        with_totp=args.with_totp
+        with_totp=args.with_totp,
+        log_path=args.log
     )
     
     # Save results if output specified

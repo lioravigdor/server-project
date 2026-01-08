@@ -1,0 +1,43 @@
+{
+  "generated_at": "2026-01-07T22:55:42.944853",
+  "sources": {
+    "attempts_log": "/Users/roeiyehuda/projects/server-project/server/attempts.log",
+    "attacks_log": "/Users/roeiyehuda/projects/server-project/attacks.log",
+    "attempts_count": 0,
+    "attacks_count": 0
+  },
+  "summary": {
+    "error": "No attempts data"
+  },
+  "time_to_crack": {
+    "server_side": [],
+    "attacker_side": [],
+    "summary": {
+      "server_side_cracks": 0,
+      "attacker_side_cracks": 0,
+      "avg_time_to_crack_s": null,
+      "min_time_to_crack_s": null,
+      "max_time_to_crack_s": null
+    }
+  },
+  "attack_patterns": {
+    "detected_patterns": [],
+    "per_user_stats": {}
+  },
+  "protection_effectiveness": {
+    "by_configuration": {},
+    "by_individual_protection": {},
+    "protection_impact": {}
+  },
+  "latency": {
+    "overall": {},
+    "by_hash_mode": {},
+    "by_result": {}
+  },
+  "attacks_log": {
+    "total_sessions": 0,
+    "by_type": {},
+    "summary": {},
+    "by_config": {}
+  }
+}

@@ -1,0 +1,4 @@
+configuration,total_attempts,successes,failures,success_rate,unique_users,accounts_cracked,avg_latency_ms,min_latency_ms,max_latency_ms,p95_latency_ms,avg_time_to_crack_s,min_time_to_crack_s,max_time_to_crack_s,duration_s,attempts_per_second
+SHA256|account_lockout+captcha+pepper+rate_limiting+totp,300,0,300,0.0,30,0,0.17,0.1,1.38,0.25,,,,0.49,614.67
+None|account_lockout+captcha+pepper+rate_limiting+totp,230,0,230,0.0,30,0,0.0,0.0,0.01,0.0,,,,0.58,397.82
+SHA256|no_protection,1950,9,1941,0.46,30,9,0.17,0.09,1.43,0.24,0.18,,0.38,60.14,32.43
