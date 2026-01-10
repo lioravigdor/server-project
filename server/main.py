@@ -4,7 +4,7 @@ import sqlite3
 import argparse
 import pyotp
 from pathlib import Path
-from fastapi import FastAPI, Body, HTTPException, status
+from fastapi import FastAPI, Body, HTTPException, status, Request
 from config import GROUP_SEED, PROTECTION_FLAGS, CAPTCHA_TOKEN, HASH_CONFIG, VALID_PROTECTIONS, VALID_HASH_MODES
 
 from models import UserRegister, UserLogin, AuthResult, UserLoginTotp, HashMode
@@ -117,8 +117,9 @@ def register(user_data: UserRegister):
     return response
 
 @app.post("/login")
-def login(user_data: UserLogin):
-    if not check_rate_limit(user_data.username):
+def login(user_data: UserLogin, request: Request):
+    client_ip = request.headers.get("X-Forwarded-For") or request.client.host
+    if not check_rate_limit(client_ip):
         raise HTTPException(status_code=status.HTTP_429_TOO_MANY_REQUESTS, detail="Too many login attempts")
 
     start_time = time.time()
