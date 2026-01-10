@@ -68,9 +68,6 @@ def load_default_users():
     if added > 0:
         print(f"[*] Loaded {added} users from users.json")
 
-init_db()
-load_default_users()
-
 def log_attempt(username, mode, flags, result, latency):
     entry = {
         "timestamp": time.time(),
@@ -270,6 +267,10 @@ if __name__ == "__main__":
     args = parse_args()
     enable_protections(args.protect)
     set_hash_mode(args.hash)
+    
+    # Initialize database and load users AFTER config is set
+    init_db()
+    load_default_users()
     
     enabled = [k for k, v in PROTECTION_FLAGS.items() if v]
     print(f"[*] Hash mode: {HASH_CONFIG['mode'].value}")
