@@ -1,0 +1,2976 @@
+{
+  "generated_at": "2026-01-10T23:06:34.642499",
+  "experiment_dir": "/Users/roeiyehuda/projects/server-project/experiment_results/experiment_20260110_225603",
+  "configurations": {
+    "baseline": {
+      "description": "No protections, SHA256 hashing (control group)",
+      "protections": [],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.4153852462768555,
+          "avg_attempts_per_second": 664.98416645105,
+          "rate_limited": 0,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.010767936706542969,
+                "attempts_per_second": 92.86830218758303,
+                "effective_aps": 92.86830218758303,
+                "avg_latency_ms": 10.650873184204102,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.011172771453857422,
+                "attempts_per_second": 358.0132303358798,
+                "effective_aps": 358.0132303358798,
+                "avg_latency_ms": 2.7241110801696777,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.009067058563232422,
+                "attempts_per_second": 330.8680515382593,
+                "effective_aps": 330.8680515382593,
+                "avg_latency_ms": 2.950270970662435,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.23697495460510254,
+                "attempts_per_second": 843.9710446755103,
+                "effective_aps": 843.9710446755103,
+                "avg_latency_ms": 1.1444056034088135,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.23785758018493652,
+                "attempts_per_second": 840.8392948608075,
+                "effective_aps": 840.8392948608075,
+                "avg_latency_ms": 1.1469805240631104,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22817611694335938,
+                "attempts_per_second": 876.5159240993062,
+                "effective_aps": 876.5159240993062,
+                "avg_latency_ms": 1.099609136581421,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2282118797302246,
+                "attempts_per_second": 876.3785664288176,
+                "effective_aps": 876.3785664288176,
+                "avg_latency_ms": 1.101067066192627,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22603082656860352,
+                "attempts_per_second": 884.8350600500821,
+                "effective_aps": 884.8350600500821,
+                "avg_latency_ms": 1.090160608291626,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2271261215209961,
+                "attempts_per_second": 880.5680238832041,
+                "effective_aps": 880.5680238832041,
+                "avg_latency_ms": 1.0935401916503906,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.24145889282226562,
+          "attempts_per_second": 828.2983395737555,
+          "avg_latency_ms": 1.128324270248413,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "bcrypt_only": {
+      "description": "No protections, bcrypt hashing (slow hash)",
+      "protections": [],
+      "hash_mode": "bcrypt",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 283.93380904197693,
+          "avg_attempts_per_second": 4.236711035651542,
+          "rate_limited": 0,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.24274873733520508,
+                "attempts_per_second": 4.1194858971362125,
+                "effective_aps": 4.1194858971362125,
+                "avg_latency_ms": 242.61975288391113,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.9415559768676758,
+                "attempts_per_second": 4.24828698268903,
+                "effective_aps": 4.24828698268903,
+                "avg_latency_ms": 235.28116941452026,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.7085146903991699,
+                "attempts_per_second": 4.234210018016466,
+                "effective_aps": 4.234210018016466,
+                "avg_latency_ms": 236.04917526245117,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 47.090211153030396,
+                "attempts_per_second": 4.2471671946862655,
+                "effective_aps": 4.2471671946862655,
+                "avg_latency_ms": 235.37702679634094,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 47.232452154159546,
+                "attempts_per_second": 4.234376808284914,
+                "effective_aps": 4.234376808284914,
+                "avg_latency_ms": 236.0730540752411,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 47.01988506317139,
+                "attempts_per_second": 4.253519542451014,
+                "effective_aps": 4.253519542451014,
+                "avg_latency_ms": 235.00900506973267,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 47.00707411766052,
+                "attempts_per_second": 4.25467876386844,
+                "effective_aps": 4.25467876386844,
+                "avg_latency_ms": 234.9412739276886,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 46.857553005218506,
+                "attempts_per_second": 4.268255322204428,
+                "effective_aps": 4.268255322204428,
+                "avg_latency_ms": 234.19912099838257,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 46.83381414413452,
+                "attempts_per_second": 4.2704187915271055,
+                "effective_aps": 4.2704187915271055,
+                "avg_latency_ms": 234.08352732658386,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 47.011088132858276,
+          "attempts_per_second": 4.25431548052619,
+          "avg_latency_ms": 234.8717987537384,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "argon2_only": {
+      "description": "No protections, Argon2 hashing (memory-hard)",
+      "protections": [],
+      "hash_mode": "argon2",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 50.25507211685181,
+          "avg_attempts_per_second": 23.327866058303677,
+          "rate_limited": 0,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.05043601989746094,
+                "attempts_per_second": 19.827099799568884,
+                "effective_aps": 19.827099799568884,
+                "avg_latency_ms": 50.28891563415527,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.1697700023651123,
+                "attempts_per_second": 23.561288474258742,
+                "effective_aps": 23.561288474258742,
+                "avg_latency_ms": 42.36447811126709,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.13487005233764648,
+                "attempts_per_second": 22.2436333937909,
+                "effective_aps": 22.2436333937909,
+                "avg_latency_ms": 44.86234982808431,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.31053900718689,
+                "attempts_per_second": 24.065827719121653,
+                "effective_aps": 24.065827719121653,
+                "avg_latency_ms": 41.4948832988739,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.224561929702759,
+                "attempts_per_second": 24.317404587556936,
+                "effective_aps": 24.317404587556936,
+                "avg_latency_ms": 41.06429576873779,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.227992057800293,
+                "attempts_per_second": 24.307267021532454,
+                "effective_aps": 24.307267021532454,
+                "avg_latency_ms": 41.08308553695679,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.180902242660522,
+                "attempts_per_second": 24.447181260407987,
+                "effective_aps": 24.447181260407987,
+                "avg_latency_ms": 40.846261978149414,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.493396997451782,
+                "attempts_per_second": 23.5477041824378,
+                "effective_aps": 23.5477041824378,
+                "avg_latency_ms": 42.405006885528564,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 8.46260380744934,
+                "attempts_per_second": 23.633388086057725,
+                "effective_aps": 23.633388086057725,
+                "avg_latency_ms": 42.25326895713806,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 8.693552732467651,
+          "attempts_per_second": 23.005554363645103,
+          "avg_latency_ms": 43.33348751068115,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "rate_limit": {
+      "description": "Rate limiting only",
+      "protections": [
+        "rate_limiting"
+      ],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.27579665184021,
+          "avg_attempts_per_second": 97.24205683507206,
+          "rate_limited": 1188,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.009727954864501953,
+                "attempts_per_second": 102.79652958188323,
+                "effective_aps": 102.79652958188323,
+                "avg_latency_ms": 9.618997573852539,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.01080775260925293,
+                "attempts_per_second": 370.10469656526436,
+                "effective_aps": 370.10469656526436,
+                "avg_latency_ms": 2.637028694152832,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.008729696273803711,
+                "attempts_per_second": 343.6545678000819,
+                "effective_aps": 343.6545678000819,
+                "avg_latency_ms": 2.844651540120443,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 12,
+                "rate_limited": 188,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20469880104064941,
+                "attempts_per_second": 977.0452928069847,
+                "effective_aps": 58.62271756841908,
+                "avg_latency_ms": 0.9862804412841797,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.21282315254211426,
+                "attempts_per_second": 939.7473799774826,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.021808385848999,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20634818077087402,
+                "attempts_per_second": 969.2355864386178,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9916841983795166,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2039780616760254,
+                "attempts_per_second": 980.4976003628093,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9813547134399414,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20716190338134766,
+                "attempts_per_second": 965.428472781678,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9940874576568604,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.21152114868164062,
+                "attempts_per_second": 945.5319302422046,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.0168802738189697,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 1,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.2277519702911377,
+          "attempts_per_second": 878.1482757068487,
+          "avg_latency_ms": 1.052459478378296,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 20,
+          "successes": 3,
+          "failures": 17,
+          "success_rate": 15.0
+        },
+        "server_spray": {
+          "total_attempts": 20,
+          "successes": 1,
+          "failures": 19,
+          "success_rate": 5.0
+        }
+      }
+    },
+    "lockout": {
+      "description": "Account lockout only",
+      "protections": [
+        "account_lockout"
+      ],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.4075043201446533,
+          "avg_attempts_per_second": 114.98753364322594,
+          "rate_limited": 0,
+          "locked_out": 1140,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.011027097702026367,
+                "attempts_per_second": 90.68569328230741,
+                "effective_aps": 90.68569328230741,
+                "avg_latency_ms": 10.901927947998047,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.011592864990234375,
+                "attempts_per_second": 345.0398157288582,
+                "effective_aps": 345.0398157288582,
+                "avg_latency_ms": 2.832651138305664,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.008961200714111328,
+                "attempts_per_second": 334.7765657425637,
+                "effective_aps": 334.7765657425637,
+                "avg_latency_ms": 2.920389175415039,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.21415305137634277,
+                "attempts_per_second": 933.9115119519317,
+                "effective_aps": 46.69557559759659,
+                "avg_latency_ms": 1.030747890472412,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.26518988609313965,
+                "attempts_per_second": 754.1765749307508,
+                "effective_aps": 37.70882874653754,
+                "avg_latency_ms": 1.2773025035858154,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.20828795433044434,
+                "attempts_per_second": 960.2091520026373,
+                "effective_aps": 48.010457600131865,
+                "avg_latency_ms": 1.0020244121551514,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.2141408920288086,
+                "attempts_per_second": 933.9645413127997,
+                "effective_aps": 46.69822706563999,
+                "avg_latency_ms": 1.03118896484375,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.21256613731384277,
+                "attempts_per_second": 940.883635217544,
+                "effective_aps": 47.044181760877194,
+                "avg_latency_ms": 1.0220003128051758,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.2615852355957031,
+                "attempts_per_second": 764.5691452904205,
+                "effective_aps": 38.22845726452102,
+                "avg_latency_ms": 1.2583589553833008,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.25548410415649414,
+          "attempts_per_second": 782.8275683151389,
+          "avg_latency_ms": 1.1941885948181152,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "captcha": {
+      "description": "CAPTCHA only",
+      "protections": [
+        "captcha"
+      ],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.4274604320526123,
+          "avg_attempts_per_second": 653.0635701727846,
+          "rate_limited": 0,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.0092620849609375,
+                "attempts_per_second": 107.9670510708402,
+                "effective_aps": 107.9670510708402,
+                "avg_latency_ms": 9.152889251708984,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.014533758163452148,
+                "attempts_per_second": 275.2213126855755,
+                "effective_aps": 275.2213126855755,
+                "avg_latency_ms": 3.243386745452881,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.00930476188659668,
+                "attempts_per_second": 322.41555845952803,
+                "effective_aps": 322.41555845952803,
+                "avg_latency_ms": 3.0312538146972656,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22475910186767578,
+                "attempts_per_second": 889.8416052478605,
+                "effective_aps": 889.8416052478605,
+                "avg_latency_ms": 1.0794687271118164,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2526068687438965,
+                "attempts_per_second": 791.7441081254542,
+                "effective_aps": 791.7441081254542,
+                "avg_latency_ms": 1.212911605834961,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22760987281799316,
+                "attempts_per_second": 878.6965061042355,
+                "effective_aps": 878.6965061042355,
+                "avg_latency_ms": 1.09421968460083,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22734594345092773,
+                "attempts_per_second": 879.7165982562151,
+                "effective_aps": 879.7165982562151,
+                "avg_latency_ms": 1.0925304889678955,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2349841594696045,
+                "attempts_per_second": 851.1212008989494,
+                "effective_aps": 851.1212008989494,
+                "avg_latency_ms": 1.1289751529693604,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 200,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22705388069152832,
+                "attempts_per_second": 880.8481907064021,
+                "effective_aps": 880.8481907064021,
+                "avg_latency_ms": 1.0892057418823242,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.29030513763427734,
+          "attempts_per_second": 688.9302808411107,
+          "avg_latency_ms": 1.239842176437378,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1215,
+          "successes": 3,
+          "failures": 1212,
+          "success_rate": 0.24691358024691357
+        },
+        "server_spray": {
+          "total_attempts": 227,
+          "successes": 7,
+          "failures": 220,
+          "success_rate": 3.0837004405286343
+        }
+      }
+    },
+    "rate_lockout": {
+      "description": "Rate limiting + account lockout",
+      "protections": [
+        "rate_limiting",
+        "account_lockout"
+      ],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.261599063873291,
+          "avg_attempts_per_second": 95.00698806393618,
+          "rate_limited": 1188,
+          "locked_out": 2,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.009306192398071289,
+                "attempts_per_second": 107.4553326672303,
+                "effective_aps": 107.4553326672303,
+                "avg_latency_ms": 9.19795036315918,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.010585784912109375,
+                "attempts_per_second": 377.86522522522523,
+                "effective_aps": 377.86522522522523,
+                "avg_latency_ms": 2.5832056999206543,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.009352922439575195,
+                "attempts_per_second": 320.7553595554309,
+                "effective_aps": 320.7553595554309,
+                "avg_latency_ms": 3.0493736267089844,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 188,
+                "locked_out": 2,
+                "successes": 0,
+                "time_elapsed_s": 0.20413589477539062,
+                "attempts_per_second": 979.739502550782,
+                "effective_aps": 48.986975127539104,
+                "avg_latency_ms": 0.9835457801818848,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.21855711936950684,
+                "attempts_per_second": 915.0925880472786,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.0519206523895264,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.19879698753356934,
+                "attempts_per_second": 1006.0514622548167,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9563338756561279,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.19982504844665527,
+                "attempts_per_second": 1000.8755236378257,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9619700908660889,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20804905891418457,
+                "attempts_per_second": 961.3117263966831,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.001598834991455,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20299005508422852,
+                "attempts_per_second": 985.2699429881536,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9768760204315186,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 1,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.28209400177001953,
+          "attempts_per_second": 708.9835258640217,
+          "avg_latency_ms": 1.2960052490234375,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 20,
+          "successes": 3,
+          "failures": 17,
+          "success_rate": 15.0
+        },
+        "server_spray": {
+          "total_attempts": 20,
+          "successes": 1,
+          "failures": 19,
+          "success_rate": 5.0
+        }
+      }
+    },
+    "lockout_captcha": {
+      "description": "Account lockout + CAPTCHA",
+      "protections": [
+        "account_lockout",
+        "captcha"
+      ],
+      "hash_mode": "sha256",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 1.305074691772461,
+          "avg_attempts_per_second": 113.43859282893905,
+          "rate_limited": 0,
+          "locked_out": 1140,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.0099029541015625,
+                "attempts_per_second": 100.97996918335902,
+                "effective_aps": 100.97996918335902,
+                "avg_latency_ms": 9.76109504699707,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.013510942459106445,
+                "attempts_per_second": 296.0563270924138,
+                "effective_aps": 296.0563270924138,
+                "avg_latency_ms": 2.997159957885742,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.008803129196166992,
+                "attempts_per_second": 340.78790997481246,
+                "effective_aps": 340.78790997481246,
+                "avg_latency_ms": 2.8669039408365884,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.21356725692749023,
+                "attempts_per_second": 936.4731414230948,
+                "effective_aps": 46.82365707115474,
+                "avg_latency_ms": 1.0238230228424072,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.2247629165649414,
+                "attempts_per_second": 889.8265027728158,
+                "effective_aps": 44.49132513864079,
+                "avg_latency_ms": 1.0770165920257568,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.2014331817626953,
+                "attempts_per_second": 992.8850760825309,
+                "effective_aps": 49.64425380412654,
+                "avg_latency_ms": 0.9633886814117432,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.21122312545776367,
+                "attempts_per_second": 946.8660193648736,
+                "effective_aps": 47.34330096824368,
+                "avg_latency_ms": 1.012740135192871,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.21245503425598145,
+                "attempts_per_second": 941.3756689757951,
+                "effective_aps": 47.06878344878976,
+                "avg_latency_ms": 1.0169589519500732,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.20941615104675293,
+                "attempts_per_second": 955.0361755782116,
+                "effective_aps": 47.75180877891058,
+                "avg_latency_ms": 1.0016381740570068,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 0.3066129684448242,
+          "attempts_per_second": 652.2881305850261,
+          "avg_latency_ms": 1.314389705657959,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1215,
+          "successes": 3,
+          "failures": 1212,
+          "success_rate": 0.24691358024691357
+        },
+        "server_spray": {
+          "total_attempts": 227,
+          "successes": 7,
+          "failures": 220,
+          "success_rate": 3.0837004405286343
+        }
+      }
+    },
+    "bcrypt_lockout": {
+      "description": "Bcrypt + account lockout",
+      "protections": [
+        "account_lockout"
+      ],
+      "hash_mode": "bcrypt",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 17.092350959777832,
+          "avg_attempts_per_second": 4.032383436384163,
+          "rate_limited": 0,
+          "locked_out": 1140,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.2431800365447998,
+                "attempts_per_second": 4.112179660009941,
+                "effective_aps": 4.112179660009941,
+                "avg_latency_ms": 243.04986000061035,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.9418680667877197,
+                "attempts_per_second": 4.2468793040644925,
+                "effective_aps": 4.2468793040644925,
+                "avg_latency_ms": 235.33302545547485,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.7058091163635254,
+                "attempts_per_second": 4.2504409909815575,
+                "effective_aps": 4.2504409909815575,
+                "avg_latency_ms": 235.154390335083,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.5361061096191406,
+                "attempts_per_second": 78.8610536607378,
+                "effective_aps": 3.9430526830368895,
+                "avg_latency_ms": 12.638633251190186,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.5255260467529297,
+                "attempts_per_second": 79.19142241955497,
+                "effective_aps": 3.9595711209777487,
+                "avg_latency_ms": 12.587114572525024,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.5380239486694336,
+                "attempts_per_second": 78.80146288802774,
+                "effective_aps": 3.9400731444013872,
+                "avg_latency_ms": 12.645730972290039,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.530824899673462,
+                "attempts_per_second": 79.02561730991539,
+                "effective_aps": 3.9512808654957694,
+                "avg_latency_ms": 12.61115550994873,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.534097909927368,
+                "attempts_per_second": 78.92354877706062,
+                "effective_aps": 3.946177438853031,
+                "avg_latency_ms": 12.628264427185059,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 2.536914825439453,
+                "attempts_per_second": 78.83591439273303,
+                "effective_aps": 3.941795719636652,
+                "avg_latency_ms": 12.640762329101562,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 46.773799896240234,
+          "attempts_per_second": 4.27589805497236,
+          "avg_latency_ms": 233.68894815444946,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "argon2_lockout": {
+      "description": "Argon2 + account lockout",
+      "protections": [
+        "account_lockout"
+      ],
+      "hash_mode": "argon2",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 4.009465932846069,
+          "avg_attempts_per_second": 18.336687060847332,
+          "rate_limited": 0,
+          "locked_out": 1140,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.049346923828125,
+                "attempts_per_second": 20.264687693259123,
+                "effective_aps": 20.264687693259123,
+                "avg_latency_ms": 49.23105239868164,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.1681199073791504,
+                "attempts_per_second": 23.792542253660944,
+                "effective_aps": 23.792542253660944,
+                "avg_latency_ms": 41.95106029510498,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.1329960823059082,
+                "attempts_per_second": 22.55705542588549,
+                "effective_aps": 22.55705542588549,
+                "avg_latency_ms": 44.24603780110677,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.6138486862182617,
+                "attempts_per_second": 325.8131922251723,
+                "effective_aps": 16.290659611258615,
+                "avg_latency_ms": 3.0284714698791504,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.6314659118652344,
+                "attempts_per_second": 316.72335155707253,
+                "effective_aps": 15.836167577853626,
+                "avg_latency_ms": 3.1152868270874023,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.6037900447845459,
+                "attempts_per_second": 331.24096981653156,
+                "effective_aps": 16.562048490826577,
+                "avg_latency_ms": 2.9789459705352783,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.604193925857544,
+                "attempts_per_second": 331.0195475999468,
+                "effective_aps": 16.55097737999734,
+                "avg_latency_ms": 2.978769540786743,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.6049947738647461,
+                "attempts_per_second": 330.5813680379203,
+                "effective_aps": 16.529068401896016,
+                "avg_latency_ms": 2.983640432357788,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 0,
+                "locked_out": 190,
+                "successes": 0,
+                "time_elapsed_s": 0.6007096767425537,
+                "attempts_per_second": 332.9395342597653,
+                "effective_aps": 16.646976712988266,
+                "avg_latency_ms": 2.9632246494293213,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 7,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_02",
+              "password": "password",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_03",
+              "password": "qwerty",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_08",
+              "password": "admin",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_07",
+              "password": "letmein",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_09",
+              "password": "welcome",
+              "category": "weak"
+            },
+            {
+              "username": "weak_user_10",
+              "password": "monkey",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 8.223022699356079,
+          "attempts_per_second": 24.321956452298426,
+          "avg_latency_ms": 40.990052223205566,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 1208,
+          "successes": 3,
+          "failures": 1205,
+          "success_rate": 0.24834437086092717
+        },
+        "server_spray": {
+          "total_attempts": 200,
+          "successes": 7,
+          "failures": 193,
+          "success_rate": 3.5000000000000004
+        }
+      }
+    },
+    "full_protection": {
+      "description": "All protections with bcrypt",
+      "protections": [
+        "all"
+      ],
+      "hash_mode": "bcrypt",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 5.431265592575073,
+          "avg_attempts_per_second": 1.8373345078711054,
+          "rate_limited": 1190,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.24347805976867676,
+                "attempts_per_second": 4.10714624944062,
+                "effective_aps": 4.10714624944062,
+                "avg_latency_ms": 243.30687522888184,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.9425499439239502,
+                "attempts_per_second": 4.243806947086021,
+                "effective_aps": 4.243806947086021,
+                "avg_latency_ms": 235.18019914627075,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.7067549228668213,
+                "attempts_per_second": 4.2447528880747685,
+                "effective_aps": 4.2447528880747685,
+                "avg_latency_ms": 235.45662562052408,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 190,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 2.537874937057495,
+                "attempts_per_second": 78.8060897247708,
+                "effective_aps": 3.94030448623854,
+                "avg_latency_ms": 12.63987421989441,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20304298400878906,
+                "attempts_per_second": 985.0131043747006,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9746038913726807,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2008218765258789,
+                "attempts_per_second": 995.9074352849551,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9637808799743652,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.19820499420166016,
+                "attempts_per_second": 1009.0563096332152,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9519481658935547,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.19702386856079102,
+                "attempts_per_second": 1015.1054360111233,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9453237056732178,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.20151400566101074,
+                "attempts_per_second": 992.4868464797547,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 0.9672248363494873,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 1,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 4.936898946762085,
+          "attempts_per_second": 40.511260642912696,
+          "avg_latency_ms": 24.596773386001587,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 20,
+          "successes": 0,
+          "failures": 20,
+          "success_rate": 0.0
+        },
+        "server_spray": {
+          "total_attempts": 20,
+          "successes": 0,
+          "failures": 20,
+          "success_rate": 0.0
+        }
+      }
+    },
+    "full_argon2": {
+      "description": "All protections with Argon2",
+      "protections": [
+        "all"
+      ],
+      "hash_mode": "argon2",
+      "analysis": {
+        "brute_force": {
+          "total_attempts": 1208,
+          "total_successes": 3,
+          "targets_cracked": 3,
+          "total_time_s": 2.164015531539917,
+          "avg_attempts_per_second": 8.943615949972642,
+          "rate_limited": 1190,
+          "locked_out": 0,
+          "targets": {
+            "weak_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_01",
+                "total_attempts": 1,
+                "actual_auth_attempts": 1,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.0502471923828125,
+                "attempts_per_second": 19.901609474643184,
+                "effective_aps": 19.901609474643184,
+                "avg_latency_ms": 50.12702941894531,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_02",
+                "total_attempts": 4,
+                "actual_auth_attempts": 4,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.17246198654174805,
+                "attempts_per_second": 23.193516903110215,
+                "effective_aps": 23.193516903110215,
+                "avg_latency_ms": 42.73712635040283,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "weak_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "weak_user_03",
+                "total_attempts": 3,
+                "actual_auth_attempts": 3,
+                "rate_limited": 0,
+                "locked_out": 0,
+                "successes": 1,
+                "time_elapsed_s": 0.1423051357269287,
+                "attempts_per_second": 21.0814598129244,
+                "effective_aps": 21.0814598129244,
+                "avg_latency_ms": 47.346035639444985,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 10,
+                "rate_limited": 190,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.6128969192504883,
+                "attempts_per_second": 326.31914718151955,
+                "effective_aps": 16.315957359075977,
+                "avg_latency_ms": 3.0165576934814453,
+                "captcha_fetches": 1,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2174367904663086,
+                "attempts_per_second": 919.8075430155395,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.0444176197052002,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "medium_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "medium_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.22667813301086426,
+                "attempts_per_second": 882.3083080114056,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.0899007320404053,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_01": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_01",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.23287296295166016,
+                "attempts_per_second": 858.8373569220058,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.1202037334442139,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_02": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_02",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.23254776000976562,
+                "attempts_per_second": 860.0383851970932,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.1174166202545166,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            },
+            "strong_user_03": {
+              "exit_code": 0,
+              "data": {
+                "username": "strong_user_03",
+                "total_attempts": 200,
+                "actual_auth_attempts": 0,
+                "rate_limited": 200,
+                "locked_out": 0,
+                "successes": 0,
+                "time_elapsed_s": 0.2765686511993408,
+                "attempts_per_second": 723.147757826852,
+                "effective_aps": 0.0,
+                "avg_latency_ms": 1.3292229175567627,
+                "captcha_fetches": 0,
+                "totp_attempts": 0,
+                "group_seed": 897878
+              }
+            }
+          }
+        },
+        "password_spray": {
+          "total_attempts": 200,
+          "users_cracked": 1,
+          "total_users": 30,
+          "cracked_users": [
+            {
+              "username": "weak_user_01",
+              "password": "123456",
+              "category": "weak"
+            }
+          ],
+          "time_elapsed_s": 1.0568649768829346,
+          "attempts_per_second": 189.23893247921805,
+          "avg_latency_ms": 5.206310749053955,
+          "group_seed": 897878
+        },
+        "server_brute": {
+          "total_attempts": 20,
+          "successes": 0,
+          "failures": 20,
+          "success_rate": 0.0
+        },
+        "server_spray": {
+          "total_attempts": 20,
+          "successes": 0,
+          "failures": 20,
+          "success_rate": 0.0
+        }
+      }
+    }
+  },
+  "summary": {
+    "by_success_rate": [
+      {
+        "config": "rate_limit",
+        "brute_cracked": 3,
+        "spray_users_cracked": 1
+      },
+      {
+        "config": "rate_lockout",
+        "brute_cracked": 3,
+        "spray_users_cracked": 1
+      },
+      {
+        "config": "full_protection",
+        "brute_cracked": 3,
+        "spray_users_cracked": 1
+      },
+      {
+        "config": "full_argon2",
+        "brute_cracked": 3,
+        "spray_users_cracked": 1
+      },
+      {
+        "config": "baseline",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "bcrypt_only",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "argon2_only",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "lockout",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "captcha",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "lockout_captcha",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "bcrypt_lockout",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      },
+      {
+        "config": "argon2_lockout",
+        "brute_cracked": 3,
+        "spray_users_cracked": 7
+      }
+    ],
+    "by_attempts_per_second": [
+      {
+        "config": "baseline",
+        "brute_aps": 664.98416645105,
+        "spray_aps": 828.2983395737555
+      },
+      {
+        "config": "bcrypt_only",
+        "brute_aps": 4.236711035651542,
+        "spray_aps": 4.25431548052619
+      },
+      {
+        "config": "argon2_only",
+        "brute_aps": 23.327866058303677,
+        "spray_aps": 23.005554363645103
+      },
+      {
+        "config": "rate_limit",
+        "brute_aps": 97.24205683507206,
+        "spray_aps": 878.1482757068487
+      },
+      {
+        "config": "lockout",
+        "brute_aps": 114.98753364322594,
+        "spray_aps": 782.8275683151389
+      },
+      {
+        "config": "captcha",
+        "brute_aps": 653.0635701727846,
+        "spray_aps": 688.9302808411107
+      },
+      {
+        "config": "rate_lockout",
+        "brute_aps": 95.00698806393618,
+        "spray_aps": 708.9835258640217
+      },
+      {
+        "config": "lockout_captcha",
+        "brute_aps": 113.43859282893905,
+        "spray_aps": 652.2881305850261
+      },
+      {
+        "config": "bcrypt_lockout",
+        "brute_aps": 4.032383436384163,
+        "spray_aps": 4.27589805497236
+      },
+      {
+        "config": "argon2_lockout",
+        "brute_aps": 18.336687060847332,
+        "spray_aps": 24.321956452298426
+      },
+      {
+        "config": "full_protection",
+        "brute_aps": 1.8373345078711054,
+        "spray_aps": 40.511260642912696
+      },
+      {
+        "config": "full_argon2",
+        "brute_aps": 8.943615949972642,
+        "spray_aps": 189.23893247921805
+      }
+    ],
+    "by_users_cracked": [
+      {
+        "config": "rate_limit",
+        "spray_cracked": 1,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "rate_lockout",
+        "spray_cracked": 1,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "full_protection",
+        "spray_cracked": 1,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "full_argon2",
+        "spray_cracked": 1,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "baseline",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "bcrypt_only",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "argon2_only",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "lockout",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "captcha",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "lockout_captcha",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "bcrypt_lockout",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      },
+      {
+        "config": "argon2_lockout",
+        "spray_cracked": 7,
+        "spray_total": 30,
+        "brute_cracked": 3,
+        "brute_total": 9
+      }
+    ]
+  },
+  "best_protection": "full_protection",
+  "most_vulnerable": "baseline"
+}

@@ -1,0 +1,13 @@
+config_id,description,protections,hash_mode,brute_attempts,brute_targets_cracked,brute_total_targets,brute_aps,brute_time_s,spray_attempts,spray_users_cracked,spray_total_users,spray_aps,spray_avg_latency_ms,server_brute_attempts,server_brute_successes,server_spray_attempts,server_spray_successes
+baseline,"No protections, SHA256 hashing (control group)",none,sha256,1208,3,9,664.98,1.42,200,7,30,828.30,1.13,1208,3,200,7
+bcrypt_only,"No protections, bcrypt hashing (slow hash)",none,bcrypt,1208,3,9,4.24,283.93,200,7,30,4.25,234.87,1208,3,200,7
+argon2_only,"No protections, Argon2 hashing (memory-hard)",none,argon2,1208,3,9,23.33,50.26,200,7,30,23.01,43.33,1208,3,200,7
+rate_limit,Rate limiting only,rate_limiting,sha256,1208,3,9,97.24,1.28,200,1,30,878.15,1.05,20,3,20,1
+lockout,Account lockout only,account_lockout,sha256,1208,3,9,114.99,1.41,200,7,30,782.83,1.19,1208,3,200,7
+captcha,CAPTCHA only,captcha,sha256,1208,3,9,653.06,1.43,200,7,30,688.93,1.24,1215,3,227,7
+rate_lockout,Rate limiting + account lockout,"rate_limiting,account_lockout",sha256,1208,3,9,95.01,1.26,200,1,30,708.98,1.30,20,3,20,1
+lockout_captcha,Account lockout + CAPTCHA,"account_lockout,captcha",sha256,1208,3,9,113.44,1.31,200,7,30,652.29,1.31,1215,3,227,7
+bcrypt_lockout,Bcrypt + account lockout,account_lockout,bcrypt,1208,3,9,4.03,17.09,200,7,30,4.28,233.69,1208,3,200,7
+argon2_lockout,Argon2 + account lockout,account_lockout,argon2,1208,3,9,18.34,4.01,200,7,30,24.32,40.99,1208,3,200,7
+full_protection,All protections with bcrypt,all,bcrypt,1208,3,9,1.84,5.43,200,1,30,40.51,24.60,20,0,20,0
+full_argon2,All protections with Argon2,all,argon2,1208,3,9,8.94,2.16,200,1,30,189.24,5.21,20,0,20,0
