@@ -1,2 +1,0 @@
-config_id,description,protections,hash_mode,total_attempts,success_rate,cracks,avg_time_to_crack_s
-baseline,"No protections, SHA256 hashing",,sha256,0,0,0,

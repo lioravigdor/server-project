@@ -207,3 +207,6 @@ marimo/_lsp/
 __marimo__/
 *.db
 attempts.log
+
+# Experiment results
+experiment_results/
