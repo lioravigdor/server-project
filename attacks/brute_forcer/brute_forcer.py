@@ -91,6 +91,10 @@ def attempt_login(base_url: str, username: str, password: str, captcha_token: st
                 result["success"] = True
         elif response.status_code == 400 and "Captcha required" in message:
             result["requires_captcha"] = True
+        elif response.status_code == 429:
+            result["rate_limited"] = True
+        elif response.status_code == 403 and "locked" in message.lower():
+            result["locked_out"] = True
         
         return result
         
@@ -191,6 +195,9 @@ def run_brute_force(
     totp_attempts = 0
     total_latency = 0
     captcha_token = None
+    rate_limited = 0
+    locked_out = 0
+    actual_auth_attempts = 0  # Attempts that actually reached password verification
     
     print("-" * 50)
     print("[*] Starting attack...")
@@ -211,10 +218,19 @@ def run_brute_force(
         result = attempt_login(base_url, username, password, captcha_token)
         total_latency += result["latency_ms"]
         
-        # Log the attempt
-        attempt_result = "Success" if result["success"] else "Failure"
-        if result["requires_totp"]:
-            attempt_result = "TOTP_Required"
+        # Track blocked attempts
+        if result.get("rate_limited"):
+            rate_limited += 1
+            attempt_result = "Rate_Limited"
+        elif result.get("locked_out"):
+            locked_out += 1
+            attempt_result = "Locked_Out"
+        else:
+            actual_auth_attempts += 1
+            attempt_result = "Success" if result["success"] else "Failure"
+            if result["requires_totp"]:
+                attempt_result = "TOTP_Required"
+        
         log_attempt(log_file, username, password, attempt_result, result["latency_ms"])
         
         # Handle CAPTCHA requirement
@@ -264,15 +280,21 @@ def run_brute_force(
     elapsed = time.time() - start_time
     avg_latency = total_latency / attempts if attempts > 0 else 0
     attempts_per_sec = attempts / elapsed if elapsed > 0 else 0
+    # Effective APS = only actual auth attempts (excluding rate-limited/locked)
+    effective_aps = actual_auth_attempts / elapsed if elapsed > 0 else 0
     
     print("\n" + "=" * 50)
     print("[*] ATTACK SUMMARY")
     print("=" * 50)
     print(f"Target:              {username}")
     print(f"Total attempts:      {attempts}")
+    print(f"Actual auth attempts:{actual_auth_attempts}")
+    print(f"Rate limited:        {rate_limited}")
+    print(f"Locked out:          {locked_out}")
     print(f"Successes:           {successes}")
     print(f"Time elapsed:        {elapsed:.2f}s")
-    print(f"Attempts/second:     {attempts_per_sec:.2f}")
+    print(f"Total APS:           {attempts_per_sec:.2f}")
+    print(f"Effective APS:       {effective_aps:.2f}")
     print(f"Avg latency:         {avg_latency:.2f}ms")
     print(f"CAPTCHA fetches:     {captcha_fetches}")
     print(f"TOTP attempts:       {totp_attempts}")
@@ -282,9 +304,13 @@ def run_brute_force(
     return {
         "username": username,
         "total_attempts": attempts,
+        "actual_auth_attempts": actual_auth_attempts,
+        "rate_limited": rate_limited,
+        "locked_out": locked_out,
         "successes": successes,
         "time_elapsed_s": elapsed,
         "attempts_per_second": attempts_per_sec,
+        "effective_aps": effective_aps,
         "avg_latency_ms": avg_latency,
         "captcha_fetches": captcha_fetches,
         "totp_attempts": totp_attempts,
